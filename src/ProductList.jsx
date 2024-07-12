@@ -3,6 +3,7 @@ import './ProductList.css'
 import { useSelector, useDispatch } from "react-redux";
 import { addItemToCart } from './CreatSlice';
 import Cart from './CartItem';
+import CartItem from './CartItem';
 
 function ProductList() {
   
@@ -57,14 +58,6 @@ function ProductList() {
 
     const dispatch = useDispatch();
 
-
-    // const [showCart, setShowCart] = useState(false);
-
-    // const handleShowCart = () => {
-    //     console.log("handleShowCart called");
-    //     setShowCart(!showCart);
-    // };
-
     //ADD TO CART
     const [addedToCart, setAddedToCart] = useState([]);
     const handleAddToCart = (plant) => {
@@ -82,6 +75,13 @@ function ProductList() {
         }, 
         [cartQuantity]);
     
+    
+    //SHOW CART PAGE
+    const [showCart, setShowCart] = useState(false);
+    const handleShowCart = () => {
+        console.log("handleShowCart called");
+        setShowCart(!showCart);
+    };
 
     const styleObj={
     backgroundColor: '#4CAF50',
@@ -121,7 +121,7 @@ function ProductList() {
             </div>
             <div style={styleObjUl}>
                 <div> <a href="#" style={styleA}>Plants</a></div>
-                <div id='cart-icon'> 
+                <div id='cart-icon' onClick={() => setShowCart(!showCart)}> 
                     <a href="#" style={styleA}>
                         <div className='cart' >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68">
@@ -140,6 +140,10 @@ function ProductList() {
         </div>
 
         {/* PRODUCTS */}
+    <div>
+    {!showCart ? (
+        <div>
+
         <div className="product-grid">
         {plantsArray.map((category, index) => (
             <div key={index}>
@@ -163,16 +167,15 @@ function ProductList() {
             </div>
         ))}
         </div>
-        {/* <div>
-            {!showCart ? (
-                <div></div>
-            ) : (
-                <div>
-                    <Cart handleClick={handleShowCart}
-                    />
-                </div>
-            )}
-        </div> */}
+        
+    </div>
+        ) : (
+            <div>
+                <CartItem handleClick={handleShowCart}
+                />
+            </div>
+        )}
+    </div>
 
 
     </div>
