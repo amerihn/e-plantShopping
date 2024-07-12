@@ -63,7 +63,7 @@ function ProductList() {
     const handleAddToCart = (plant) => {
         dispatch(addItemToCart(plant));
         setAddedToCart([...addedToCart, plant.name]);
-        console.log(plant);
+        // console.log(plant);
     };
         //TOTAL CART QUANTITY
         const [totalCartQuantity, setTotalCartQuantity] = useState(0);
@@ -159,7 +159,7 @@ function ProductList() {
                             className={`product-button ${addedToCart.includes(plant.name) ? 'disabled' : ''}`}
                             onClick={() => handleAddToCart(plant)}
                             disabled={addedToCart.includes(plant.name)}
-                        > Add to Cart
+                        > {addedToCart.includes(plant.name) ? 'Added' : 'Add'} to Cart
                         </button>
                     </div>
                 ))}
@@ -181,5 +181,6 @@ function ProductList() {
     </div>
     );
 }
+
 
 export default ProductList;
