@@ -38,9 +38,6 @@ body {
     text-decoration: none;
    
 }
-#cart-icon {
-    background-color: rgb(255, 0, 0);
-}
 
 /* Product Grid */
 .product-grid {
@@ -163,9 +160,15 @@ body {
     width: 650px;
     font-size: 19px;
 }
-.cart{
-    color: white;
-    display: flex;
+.cart-icon-wrapper {
+    position: relative;
+}
+.cart-icon-wrapper span {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-weight: bold;
+    color: black;
 }
 .cart_quantity_count{
     margin-top: 16px;

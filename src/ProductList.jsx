@@ -121,9 +121,9 @@ function ProductList() {
             </div>
             <div style={styleObjUl}>
                 <div> <a href="#" style={styleA}>Plants</a></div>
-                <div id='cart-icon' onClick={() => setShowCart(!showCart)}> 
+                <div id='cart' onClick={() => setShowCart(!showCart)}> 
                     <a href="#" style={styleA}>
-                        <div className='cart' >
+                        <div className='cart-icon-wrapper' >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68">
                                 <rect width="156" height="156" fill="none"></rect>
                                 <circle cx="80" cy="216" r="12"></circle>
@@ -132,8 +132,8 @@ function ProductList() {
                                     fill="none" stroke="#faf9f9" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                     id="mainIconPathAttribute"></path>
                             </svg>
+                            <span>{totalCartQuantity}</span>
                         </div>
-                        <span>{totalCartQuantity}</span>
                     </a>
                 </div>
             </div>
@@ -167,7 +167,7 @@ function ProductList() {
             </div>
         ))}
         </div>
-        
+
     </div>
         ) : (
             <div>
