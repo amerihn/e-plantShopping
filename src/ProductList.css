@@ -38,6 +38,9 @@ body {
     text-decoration: none;
    
 }
+#cart-icon {
+    background-color: rgb(255, 0, 0);
+}
 
 /* Product Grid */
 .product-grid {
