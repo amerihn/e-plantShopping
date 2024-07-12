@@ -6,10 +6,10 @@ export const CreatSlice = createSlice({
     cartItems: [], // Initialize items as an empty array
   },
   reducers: {
+    // SET KEY VALUE IS NAME => item.name
     addItemToCart(state, action) {
-      // const { name, image, cost } = action.payload;
       const existingItem = state.cartItems.find(
-        item => item.index === action.payload
+        item => item.name === action.payload.name
       );
       if (existingItem) {
         existingItem.quantity += 1;
@@ -19,46 +19,38 @@ export const CreatSlice = createSlice({
         );
       };
     },
-    // removeItemFromCart: (state, action) => {
-    //   // state.cartItems = state.cartItems.filter(
-    //   //   item => item.index !== action.payload.name
-    //   // );
-    //   state.cartItems.map((item) => {
-    //     if (item.index === action.payload) {
-    //       state.cartItems = state.cartItems.filter(
-    //         (item) => item.index !== item.index
-    //       );
-    //     }})
-    // },
-    // increaseItemQuantity: (state, action) => {
-    //   const itemToIncrease = state.cartItems.find(
-    //     item => item.index === action.payload.name
-    //   );
-    //   console.log(itemToIncrease);
-    //   // itemToIncrease.forEach((item) => {
-    //   //   if (itemToIncrease) {
-    //   //     item.quantity +=1;
-    //   //   }
-    //   // })
-    //   if (itemToIncrease) {
-    //     itemToIncrease.quantity +=1;
-    //   }
-    // },
-    // decreaseItemQuantity: (state, action) => {
-    //   // const { name, quantity } = action.payload;
-    //   const itemToDecrease = state.cartItems.find(
-    //     item => item.name === action.payload
-    //   );
-    //   if (itemToDecrease && itemToDecrease.quantity > 1) {
-    //     itemToDecrease.quantity--;
-    //   }
-    // },
+    removeItemFromCart: (state, action) => {
+      state.cartItems = state.cartItems.filter(
+        (item) => item.name !== action.payload
+      );
+    },
+
+    increaseItemQuantity: (state, action) => {
+      const itemToIncrease = state.cartItems.find(
+        item => item.name === action.payload
+      );
+      if (itemToIncrease) {
+        itemToIncrease.quantity +=1;
+      }
+    },
+    decreaseItemQuantity: (state, action) => {
+      const itemToDecrease = state.cartItems.find(
+        item => item.name === action.payload
+      );
+      if (itemToDecrease && itemToDecrease.quantity > 1) {
+        itemToDecrease.quantity--;
+      }
+    },
+
+    clearCart(state) {
+      state.cartItems = [];
+    },
 
   },
 });
 
 export const { 
-  addItemToCart, removeItemFromCart, increaseItemQuantity, decreaseItemQuantity
+  addItemToCart, removeItemFromCart, increaseItemQuantity, decreaseItemQuantity, clearCart
 } = CreatSlice.actions;
 
 export default CreatSlice.reducer;
