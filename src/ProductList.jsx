@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import { useSelector, useDispatch } from "react-redux";
 import { addItemToCart } from './CreatSlice';
-import Cart from './CartItem';
 import CartItem from './CartItem';
 
 function ProductList() {
