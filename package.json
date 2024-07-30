@@ -12,9 +12,9 @@
     "deploy": "gh-pages -d dist"
   },
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/amerihn/e-plantShopping.git"   
-  }
+    "type": "git",
+    "url": "git+https://github.com/amerihn/e-plantShopping.git"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "react": "^18.2.0",
