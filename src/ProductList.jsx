@@ -62,7 +62,7 @@ function ProductList() {
     const handleAddToCart = (plant) => {
         dispatch(addItemToCart(plant));
         setAddedToCart([...addedToCart, plant.name]);
-        // console.log(plant);
+        console.log(plant);
     };
         //TOTAL CART QUANTITY
         const [totalCartQuantity, setTotalCartQuantity] = useState(0);
@@ -109,12 +109,12 @@ function ProductList() {
         <div className="navbar" style={styleObj}>
             <div className="tag">
                <div className="luxury">
-               <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
-               <a href="/" style={{textDecoration:'none'}}>
+                    <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
+                    <a href="/" style={{textDecoration:'none', marginLeft: "10px"}}>
                         <div>
-                    <h3 style={{color:'white'}}>Paradise Nursery</h3>
-                    <i style={{color:'white'}}>Where Green Meets Serenity</i>
-                    </div>
+                            <h3 style={{color:'white'}}>Paradise Nursery</h3>
+                            <i style={{color:'white'}}>Where Green Meets Serenity</i>
+                        </div>
                     </a>
                 </div>              
             </div>
@@ -154,12 +154,16 @@ function ProductList() {
                         <div className="product-title">{plant.name}</div>
                         <div>{plant.description}</div>
                         <div className='product-price'>{plant.cost}</div>
-                        <button   
+                        {/* <button   
                             className={`product-button ${addedToCart.includes(plant.name) ? 'disabled' : ''}`}
-                            onClick={() => handleAddToCart(plant)}
-                            disabled={addedToCart.includes(plant.name)}
+                            onClick={() => handleAddToCart(plant)}      disabled={addedToCart.includes(plant.name)}
                         > {addedToCart.includes(plant.name) ? 'Added' : 'Add'} to Cart
-                        </button>
+                        </button> */}
+                        {addedToCart.includes(plant.name) ? (
+                            <button className='product-button disabled' disabled>Added to Cart</button>
+                        ) : (
+                            <button className='product-button' onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                        ) }
                     </div>
                 ))}
                 </div>

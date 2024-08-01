@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import ProductList from './ProductList';
 import './App.css';
 import AboutUs from './AboutUs';
-import CartItem from './CartItem';
 
 function App() {
   
