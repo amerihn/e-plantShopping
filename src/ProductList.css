@@ -41,6 +41,7 @@ body {
 
 /* Product Grid */
 .product-grid {
+    margin-top: 20px;
     display:flex;
     flex-direction: column;
     width: 100vw;
@@ -240,15 +241,9 @@ body {
       max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on small screens */
     }
     .navbar {
-        flex-direction: column; /* Change flex direction to stack items vertically */
         align-items: center; /* Align items to the center of the container */
       }
-    
-      .tag {
-        margin-bottom: 20px; /* Add margin bottom for spacing */
-        text-align: center; /* Align text to the center */
-      }
-    
+     
       .ul {
         display: flex; /* Set display to flex */
         flex-direction: column; /* Change flex direction to stack items vertically */
